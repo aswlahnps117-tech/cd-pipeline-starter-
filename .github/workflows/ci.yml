@@ -1,3 +1,4 @@
+
 name: CI/CD
 
 on:
@@ -26,10 +27,11 @@ jobs:
       - name: Build
         run: npm run build --if-present
 
-    deploy:
+  deploy:
     runs-on: ubuntu-24.04
     needs: ci
     if: github.ref == 'refs/heads/main'
+
     steps:
       - name: Trigger Render deploy
         run: |
